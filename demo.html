@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>demo</title>
+  <style>
+    div {
+      width: 200px;
+      border: 1px dashed cyan;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div>hello</div>
+</body>
+</html>
+<script>
+  var divObj = document.getElementsByTagName('div')[0];
+  divObj.onclick = function () {
+    this.innerHTML += ' word';
+  }
+</script>
