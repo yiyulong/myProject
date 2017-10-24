@@ -1,31 +1,72 @@
-<html lang="en">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>demo</title>
-  <style>
-    div {
-      width: 200px;
-      border: 1px dashed cyan;
-      height: 400px;
-    }
-  </style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>动态创建表格</title>
+<script src="./jquery-3.2.1.min.js"></script>
+<style>
+  .inputStyle {
+    border: none;
+    outline: none;
+  }
+  #createtable {
+    width: 800px;
+  }
+  #createtable > table {
+    width: 100%;
+    border-collapse: collapse;
+    /* border-top: 1px solid red; */
+    text-align: center;
+  }
+  #createtable > table tr:nth-child(2n) {
+    background: #eee;
+  }
+  #createtable > table tr:hover {
+    background: #DAEDF7;
+  }
+  #createtable > table tr td {
+    /* background: red; */
+  }
+  #createtable > table tr td input {
+    background: none;
+  }
+</style>
 </head>
+ 
 <body>
-  <div>hello</div>
-  <p></p>
+<input type="button" value="添加表格" onClick="CreateTable(5,6)" >
+<input type="button" value="添加行" onClick="CreateRow(6, '#table')">
+<div id="createtable"></div>
 </body>
 </html>
-<script>
-  var divObj = document.getElementsByTagName('div')[0];
-  var i = 20;
-  var j;
-  divObj.onclick = function () {
-    this.innerHTML += ' word';
-    j = i * 10;
-    return j;
+<script type="text/javascript">
+  function CreateTable(rowCount,cellCount)
+  { 
+     var table=$("<table id=\"table\">");
+     table.appendTo($("#createtable"));
+     table.css({"border-top":"1px solid #ccc","border-bottom":"1px solid #CCC"});
+     for(var i=0;i<rowCount;i++)
+     {
+        var tr=$("<tr></tr>");
+        tr.appendTo(table);
+        tr.css({"border-bottom":"1px solid #CCC","height":"30px"});
+        for(var j=0;j<cellCount;j++)
+        {
+           var td=$("<td>"+"<input type=\"text\">"+"</td>");
+           td.appendTo(tr);
+           td.find("input").css({"outline":"none","border":"none","width":"100%","height":"100%","text-align":"center"});
+        }
+     }
+     $("#createtable").append("</table>");
   }
-  var pObj = document.getElementsByTagName('p')[0];
-  pObj.innerHTML = divObj.onclick();
+  function CreateRow (cellCount, table) {
+    var tr = $("<tr></tr>");
+    tr.appendTo(table)
+    for(var j=0;j<cellCount;j++)
+        {
+           var td=$("<td>"+"<input type=\"text\">"+"</td>");
+           td.appendTo(tr);
+        }
+  }
 </script>

@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>创建表格</title>
+  <script src="./jquery-3.2.1.min.js"></script>
+  <style>
+    .container {
+      width: 800px;
+    }
+    .container > p {
+      text-align: center;
+    }
+    .container > p button {
+      width: 15%;
+    }
+    .container > table {
+      width: inherit;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+    .container > table > thead tr {
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+      height: 35px;
+    }
+    .container > table > tbody tr {
+      border-bottom: 1px solid #ccc;  
+      text-align: center;
+      height: 35px;
+      transition: all 0.2s;
+    }
+    .container > table > tbody tr:nth-child(2n) {
+      background: #eee;
+    }
+    .container > table > tbody tr:hover {
+      box-shadow: 0 -2px 10px 2px rgb(199, 197, 197);
+    }
+    .container > table td {
+      padding: 4px 10px;
+    }
+    .container > table td[contenteditable = "true"] {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p>
+      <button class="getTableData">获取表格</button>
+      <button class="addTable">添加行</button>
+      <button class="enableType">允许输入</button>
+      <button class="disType">禁止输入</button>
+      <button class="createStr">生成字符串</button>
+      <p class="str"></p>
+    </p>
+    <table>
+      <thead></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</body>
+<script src="js.js"></script>
+</html>

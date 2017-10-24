@@ -1,0 +1,121 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>创建表格</title>
+    <script src="./jquery-3.2.1.min.js"></script>
+    <style>
+      .container, .banner {
+        width: 800px;
+      }
+      .banner > p {
+        text-align: center;
+      }
+      .banner > p button {
+        width: 20%;
+      }
+      .container > table {
+        width: inherit;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+      .container > table > thead tr {
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+        height: 35px;
+      }
+      .container > table > tbody tr {
+        border-bottom: 1px solid #ccc;  
+        text-align: center;
+        height: 35px;
+        transition: all 0.2s;
+      }
+      .container > table > tbody tr:nth-child(2n) {
+        background: #eee;
+      }
+      .container > table > tbody tr:hover {
+        box-shadow: 0 -2px 10px 2px rgb(199, 197, 197);
+      }
+      .container > table td {
+        padding: 4px 10px;
+      }
+      .container > table td[contenteditable = "true"] {
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <p>
+        <button class="delTable" onclick="mc.delTr('.container')">删除行</button>
+        <button class="enableType" onclick="mc.enableType()">允许输入</button>
+        <button class="disType" onclick="mc.disType()">禁止输入</button>
+        <button class="createStr" onclick="mc.sublimeTable('.container')">生成字符串</button>
+        <p class="str"></p>
+      </p>
+    </div>
+    <div class="container">
+      <table>
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </body>
+  <script src="./demo1.js"></script>
+  <script>
+    $(function () {
+      var data = {
+        "gridHeader" : "指标\/年份,2017,2016,2015",
+        "gridData" : [
+          {
+            "rowId" : "ff80808159909d62015991aa51ab0133",
+            "rowData" : "总收入,,,"
+          },
+          {
+            "rowId" : "ff80808159909d62015991aa51ab0134",
+            "rowData" : "主营业务收入,,,"
+          },
+          {
+            "rowId" : "ff80808159909d62015991aa51ab0135",
+            "rowData" : "主营业务收入增长率(%),,,"
+          },
+          {
+            "rowId" : "ff80808159909d62015991aa51ab0136",
+            "rowData" : "净利润,,,"
+          },
+          {
+            "rowId" : "ff80808159909d62015991aa51ab0137",
+            "rowData" : "其中主营业务利润,,,"
+          },
+          {
+            "rowId" : "ff80808159909d62015991aa51ab0138",
+            "rowData" : "主营业务利润增长率(%),,,"
+          },
+          {
+            "rowId" : "ff80808159909d62015991aa51ab0139",
+            "rowData" : "研发经费支出总额,,,"
+          },
+          {
+            "rowId" : "ff80808159909d62015991aa51ab013a",
+            "rowData" : "总资产,,,"
+          },
+          {
+            "rowId" : "ff80808159909d62015991aa51ab013b",
+            "rowData" : "净资产,,,"
+          },
+          {
+            "rowId" : "ff80808159909d62015991aa51ab013c",
+            "rowData" : "资产负债率(%),,,"
+          },
+          {
+            "rowId" : "e5a59c985b12a6f1015b18cf6ec90683",
+            "rowData" : "纳税总额,,,"
+          }  
+        ],
+        "dataType" : "create"
+      };
+      mc.getTable(data, $(".container"));
+      mc.onlyText();
+    }); 
+  </script>
+  </html>
