@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<script src="js/jquery-3.2.1.js"></script>  
+	<script src="js/vendor/jquery.ui.widget.js"></script>
+	<script src="js/jquery.iframe-transport.js"></script>
+	<script src="js/jquery.fileupload.js"></script>
+	<script src="js/jquery.jquery.xdr-transport.js"></script>
+</head>
+<body>
+        <input id="fileupload" type="file" name="file" data-url="upload_url">
+        <div class="progress progress-striped active">
+            <div class="progress-bar progress-bar-success" role="progressbar" style="width: 0%;">0%</div>
+        </div>
+        <blockquote>hahah</blockquote>
+        <details>
+        	<summary>23333</summary>
+        	<p>666</p>
+        	<blockquote>jiuush</blockquote>
+        </details>
+        <figure>233</figure>
+        <fieldset>
+        	<legend>66</legend>
+        </fieldset>
+        输入<kbd>k</kbd>
+        <p><keygen>haha</keygen></p>
+        <progress value="20" max="100"></progress>
+        <meter value="0.6">666</meter>
+        <del>2333</del>
+        <dialog open>hhahah</dialog>
+        <code><div>233</div><h1>haha</h1></code>
+        <cite>123</cite>
+        <script>
+        $(function () {
+            $('#fileupload').fileupload({
+                dataType: 'json',
+                progressall: function (e, data) {
+                    var progress = parseInt(data.loaded / data.total * 100, 10);
+                    $('.progress .bar').css(
+                        'width',
+                        progress + '%'
+                    );
+                    $('.progress .bar').text(progress + '%');
+                },
+
+                done: function(e, data) {
+                    $('.progress .bar').text("done");
+                }
+            });
+        });
+        </script>
+    </body>
+</html>

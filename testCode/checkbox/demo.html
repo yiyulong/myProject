@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+  <div>
+    <h2><input type="checkbox" name="checkAll">全选</h2>
+    <p>
+      <input type="checkbox" name="single">一<br>
+      <input type="checkbox" name="single">二<br>
+      <input type="checkbox" name="single">三<br>
+    </p>
+  </div>
+</body>
+<script>
+  $('input[name="checkAll"]').click(function () {
+    if ($(this).is(':checked')) {
+      $('input[name="single"]').each(function () {
+        $(this).prop("checked", true)
+        // $(this).attr("checked", true)
+      })
+    }else {
+      $('input[name="single"]').each(function () {
+        $(this).prop("checked", false)
+        // $(this).attr("checked", false)
+      })
+    }
+  })
+</script>
+</html>

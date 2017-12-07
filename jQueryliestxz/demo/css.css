@@ -1,0 +1,39 @@
+.container {
+  width: 600px;
+  border: 1px solid #333;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #f2f2f2;
+}
+.leftBox, .rightBox {
+  width: 200px;
+  height: 250px;
+  border: 1px solid #666;
+  padding: 5px;
+  background: #fff;
+}
+.centerBox {
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+.centerBox button {
+  border: 1px solid #999;
+  outline: none;
+  margin-bottom: 10px;
+  width: 40px;
+}
+li {
+  margin-bottom: 8px;
+}
+li.isSelect {
+  background: chartreuse;
+}
+li.isSelected {
+  background: #eee;
+  color: #999;
+}
